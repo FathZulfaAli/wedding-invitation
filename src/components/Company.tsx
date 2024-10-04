@@ -18,10 +18,10 @@ export default function Company() {
     <footer className="flex flex-row items-center justify-between px-3 lg:px-9 w-full mt-20 py-6 lg:w-full bg-black">
       <span className=" text-white"> Made by F&M Production</span>
       <div className="flex flex-row gap-x-3">
-        <div onClick={handleDiscordClick} className="mt-2 cursor-pointer">
+        <div onClick={handleDiscordClick} className="cursor-pointer">
           <DiscordSvg />
         </div>
-        <div onClick={handleIgClick} className="mt-2 cursor-pointer">
+        <div onClick={handleIgClick} className="cursor-pointer">
           <InstagramSvg />
         </div>
       </div>

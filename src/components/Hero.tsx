@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import { Bodoni_Moda, Yatra_One } from "next/font/google";
+import { motion } from "framer-motion"; // Import framer-motion
 
 const yatraOne = Yatra_One({
   subsets: ["latin"],
@@ -23,53 +26,101 @@ export default function Hero() {
   return (
     <>
       <div className="flex justify-between items-center lg:h-auto h-screen lg:mx-28">
-        <Image
+        <motion.div
+          initial={{ x: -100, opacity: 0 }} // Animation from left and transparent
+          animate={{ x: 0, opacity: 1 }} // Move to original position and fully visible
+          transition={{ duration: 1 }} // Animation duration
           className="hidden lg:block"
-          alt="hero"
-          src={leftHero}
-          width={200}
-          height={300}
-        />
+        >
+          <Image
+            alt="hero"
+            src={"/left-hero.JPG"}
+            width={200}
+            height={300}
+            className=" grayscale contrast-75"
+          />
+        </motion.div>
+
         <div className="flex w-full relative items-center justify-center h-full">
-          <div
-            className={`absolute flex flex-col lg:flex-row gap-y-9 text-center text-7xl lg:text-8xl text-white z-10 ${yatraOne.className}`}
+          <motion.div
+            className={`absolute flex flex-col lg:flex-row gap-y-9 text-center text-7xl lg:text-8xl text-black z-10 ${yatraOne.className}`}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }} // Delayed animation for the date
           >
             <span>19</span>
             <span>• 10 •</span>
             <span className="hidden lg:block">2024</span>
             <span className="lg:hidden">24</span>
-          </div>
-          <div
-            className={`absolute flex flex-col h-screen lg:hidden py-7 items-center justify-between text-xl text-white z-10 ${bodoniModa.className}`}
+          </motion.div>
+
+          <motion.div
+            className={`absolute flex flex-col h-screen lg:hidden py-10 items-center justify-between text-xl text-black z-10 ${bodoniModa.className}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.8 }}
           >
-            <span>Fath Zulfa Ali</span>
-            <span>Megawati Indah Mayang Sari</span>
-          </div>
-          <div className="w-screen h-screen lg:hidden">
+            <motion.span
+              initial={{ y: -50, opacity: 0 }} // Slide down from top
+              animate={{ y: 0, opacity: 1 }} // Settle into position with full opacity
+              transition={{ duration: 1.2, delay: 0.8 }} // Control the animation duration and delay
+            >
+              Fath Zulfa Ali
+            </motion.span>
+
+            <motion.span
+              initial={{ y: 50, opacity: 0 }} // Slide up from bottom
+              animate={{ y: 0, opacity: 1 }} // Settle into position with full opacity
+              transition={{ duration: 1.2, delay: 0.8 }} // Control the animation duration and delay
+            >
+              Megawati Indah Mayang Sari
+            </motion.span>
+          </motion.div>
+
+          <motion.div
+            className="w-screen h-screen lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.3 }}
+          >
             <Image
               alt="main hero mobile"
-              src={mainHeroMobile}
+              src={"/mobile-hero.JPG"}
               layout="fill"
               objectFit="cover"
-              className="lg:hidden"
+              className="lg:hidden grayscale contrast-75"
             />
-          </div>
-          <Image
-            className="hidden lg:block"
-            alt="hero"
-            src={mainHero}
-            width={350}
-            height={500}
-          />
+          </motion.div>
+
+          <motion.div
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+          >
+            <Image
+              className="hidden lg:block grayscale contrast-75"
+              alt="hero"
+              src={"/mobile-hero.JPG"}
+              width={500}
+              height={650}
+            />
+          </motion.div>
         </div>
 
-        <Image
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
           className="hidden lg:block"
-          alt="hero"
-          src={rightHero}
-          width={200}
-          height={300}
-        />
+        >
+          <Image
+            alt="hero"
+            src={"/right-hero.JPG"}
+            width={200}
+            height={300}
+            className=" grayscale contrast-75"
+          />
+        </motion.div>
       </div>
     </>
   );

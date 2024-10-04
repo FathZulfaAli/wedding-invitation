@@ -19,3 +19,74 @@
   --fcc-separator-size: 6px; /* size of colon */
   --fcc-separator-color: black; /* color of colon */
 }
+
+@media (min-width: 1024px) {
+  .flip-clock {
+    --fcc-flip-duration: 0.5s; /* transition duration when flip card */
+    --fcc-spacing: 8px; /* space between unit times and separators */
+    --fcc-digit-block-width: 50px; /* width of digit card */
+    --fcc-digit-block-height: 75px; /* height of digit card, highly recommend in even number */
+    --fcc-digit-block-radius: 5px; /* border radius of digit card */
+    --fcc-digit-block-spacing: 10px; /* space between blocks in each unit of time */
+    --fcc-digit-font-size: 30px; /* font size of digit */
+    --fcc-digit-color: white; /* color of digit */
+    --fcc-label-font-size: 18px; /* font size of label */
+    --fcc-label-color: black; /* color of label */
+    --fcc-background: black; /* background of digit card */
+    --fcc-divider-color: white; /* color of divider */
+    --fcc-divider-height: 0px; /* height of divider */
+    --fcc-separator-size: 6px; /* size of colon */
+    --fcc-separator-color: black; /* color of colon */
+  }
+}
+.loader {
+  width: 25px;
+  height: 50px;
+  display: grid;
+  color: #000;
+  background: linear-gradient(currentColor 0 0) top/100% 2px,
+    radial-gradient(
+        farthest-side at top,
+        #0000 calc(100% - 2px),
+        currentColor calc(100% - 1px),
+        #0000
+      )
+      top,
+    linear-gradient(currentColor 0 0) bottom/100% 2px,
+    radial-gradient(
+        farthest-side at bottom,
+        #0000 calc(100% - 2px),
+        currentColor calc(100% - 1px),
+        #0000
+      )
+      bottom;
+  background-size: 100% 1px, 100% 50%;
+  background-repeat: no-repeat;
+  animation: l18 4s infinite linear;
+}
+
+/* Increase size on larger screens (desktop) */
+@media (min-width: 1024px) {
+  .loader {
+    margin-top: 20px;
+    width: 50px; /* Increased width for desktop */
+    height: 100px; /* Increased height for desktop */
+  }
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  background: inherit;
+  border: inherit;
+  animation: inherit;
+}
+.loader::after {
+  animation-duration: 2s;
+}
+@keyframes l18 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
