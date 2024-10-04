@@ -58,7 +58,7 @@ export default function ContentInvitation() {
           <p className={`text-2xl lg:text-4xl mt-10 ${pnyonScript.className}`}>
             Akad Nikah
           </p>
-          <p className="text-sm lg:text-lg">Sabtu, 14 Oktober 2024</p>
+          <p className="text-sm lg:text-lg">Selasa, 14 Oktober 2024</p>
           <p className="text-xs lg:text-base">Kediaman Mempelai Putri</p>
         </motion.div>
 
